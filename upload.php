@@ -25,8 +25,7 @@ if ($uploadOk == 0) {
 } else {
   if (move_uploaded_file($_FILES["uploaded"]["tmp_name"], $target_file)) {
 	  echo $target_file." has been uploaded<br>";
-	  #$cmd = "bash /home/pi/print_img.sh ".$target_file;
-	  $cmd = "bash print_img.sh ".$target_file;
+	  $cmd = "bash convert_and_print.sh ".$target_file;
 	  shell_exec($cmd);
 	  echo "ran command: ".$cmd."<br>";
 	  if($debug == false) {
