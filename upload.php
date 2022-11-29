@@ -26,7 +26,9 @@ if ($uploadOk == 0) {
   if (move_uploaded_file($_FILES["uploaded"]["tmp_name"], $target_file)) {
 	  echo $target_file." has been uploaded<br>";
 	  $cmd = "bash convert_and_print.sh ".$target_file;
-	  shell_exec($cmd);
+	  for($i = 0; $i < $_POST["amount"]; $i++) {
+		  shell_exec($cmd);
+	  }
 	  echo "ran command: ".$cmd."<br>";
 	  if($debug == false) {
 	  	header('Location: http://'.$_SERVER['HTTP_HOST']);
